@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/authentication.css" th:href="@{/css/authentication.css}"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+
+    <title>authentication</title>
+</head>
+<body>
+<br/>
+
+<div th:if="${logout}" class="massage-alert alert alert-info" role="alert">
+    <p class="message" th:text="${massage_logout}"></p>
+</div>
+
+
+<div th:if="${error}" class="massage-alert alert alert-danger" role="alert">
+    <p class="message" th:text="${massage_error}"></p>
+</div>
+
+<div th:if="${successful_registration}" class="alert alert-success" role="alert">
+    <p class="message" th:text="${message_successful}"></p>
+</div>
+
+<div th:if="${error_name}" class="alert alert-warning" role="alert">
+    <p class="message" th:text="${message_error}"></p>
+</div>
+
+
+<div class="wrapper">
+    <div class="login">
+        <div class="logo-block">
+            <div class="logo"></div>
+        </div>
+        <div class="name-company">
+            <h1>Pone book</h1>
+        </div>
+        <div class="container">
+            <form th:action="@{/login}" id="form" action="" method="post">
+                <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"/>
+                <h2>Please sign in</h2>
+                <input type="text" class=" input input-login" name="login" placeholder="login">
+                <br/>
+                <input type="password" class="input input-password" name="password" placeholder="password">
+                <br/>
+                <div class="btn-enter">
+                    <button class="btn-enter-submit" type="submit"><p>Enter</p></button>
+                </div>
+                <div>
+                    <a class="password-reminder" href="/registration">
+                        registration
+                    </a>
+                </div>
+                <br/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

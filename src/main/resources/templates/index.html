@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="default/header :: header">
+    <title>Phone book</title>
+</head>
+<body>
+
+
+<div class="wrapper">
+
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+            <br/>
+            <br/>
+
+            <div class="user-name-session">
+                <p class="title">account:</p>
+                <p class="name" th:text="${user_mame}"></p>
+            </div>
+
+            <div class="exit-account">
+                <a th:href="@{/logout}">
+                    <div class="btn-exit">
+                        <p>Exit</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="content-show">
+                <p>show <span style="color: #0c7123"> "Phone book"</span></p>
+            </div>
+            <br/>
+            <div th:if="${message_save_phone}" class="message alert alert-success" role="alert">
+                <p th:text="${message_save_phone}"></p>
+            </div>
+
+
+            <div th:if="${susses_delete}" class="message alert alert-success" role="alert">
+                <p th:text="${susses_delete}"></p>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="text-table-header" scope="col"><p>Name</p></th>
+                    <th class="text-table-header" scope="col"><p>surname</p></th>
+                    <th class="text-table-header" scope="col"><p>patronymic</p></th>
+                    <th class="text-table-header" scope="col"><p>phone mobile</p></th>
+                    <th class="text-table-header" scope="col"><p>phone home</p></th>
+                    <th class="text-table-header" scope="col"><p>email</p></th>
+                    <th class="text-table-header" scope="col"><p>address</p></th>
+                    <th class="text-table-header" scope="col"><p>options</p></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="elem:${phoneBookAll}">
+                    <td class="text-table" th:text="${elem.name}"></td>
+                    <td class="text-table" th:text="${elem.surname}"></td>
+                    <td class="text-table" th:text="${elem.patronymic}"></td>
+                    <td class="text-table" th:text="${elem.phoneMobile}"></td>
+                    <td class="text-table" th:text="${elem.phoneHome}"></td>
+                    <td class="text-table" th:text="${elem.email}"></td>
+                    <td class="text-table" th:text="${elem.address}"></td>
+                    <td>
+                        <div class="btn group">
+                            <a th:href="@{/deletePhone/{id}(id=${elem.id})}"
+                               class="badge badge-danger btn-sm delBtn">
+                                <i class="fas fa-trash-alt"></i> Delete</a>
+                            <a th:href="@{/getOnePhone/{id}(id=${elem.id})}"
+                               class="badge badge-secondary btn-sm editBtn"><i class="fas fa-pencil-alt"></i>
+                                Edit</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="filter-choose">
+        <form th:action="@{/filter}" th:object="${phoneBook}" method="post">
+            <p>filter: <label>
+                <select name="filter">
+                    <option>--</option>
+                    <option name="name" value="name">name</option>
+                    <option name="surname" value="surname">surname</option>
+                    <option name="phoneMobile" value="phoneMobile">phone mobile</option>
+                </select>
+            </label>
+            </p>
+            <div class="btn-send">
+                <button type="submit" class="btn btn-outline-info btn-sm " id="btn-filter"
+                        name="btn-add-text-line"> Send
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="wrapper-registration">
+        <form class="form-add" th:action="@{/save}" th:object="${phoneBook}"
+              method="post">
+            <div class="text-registration">
+                <h1>Add phone</h1>
+            </div>
+            <input type="text" th:field="*{name}" title="name" name="name" placeholder="name *">
+            <label class="error-label" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+
+            <input type="text" th:field="*{surname}" title="surname" name="surname" placeholder="surname *">
+            <label class="error-label" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></label>
+
+            <input type="text" th:field="*{patronymic}" title="patronymic" name="patronymic" placeholder="patronymic *">
+            <label class="error-label" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}"></label>
+
+            <input type="text" th:field="*{phoneMobile}" name="phoneMobil" placeholder=" 380 ( --   ---  ) (  --  ) (  --  ) *">
+            <label class="error-label" th:if="${#fields.hasErrors('phoneMobile')}" th:errors="*{phoneMobile}"></label>
+
+            <input type="number" title="login" name="phoneHome" placeholder="044  ( --- )  ( -- )  ( -- )">
+            <input type="email" title="email" name="email" placeholder="email">
+            <input type="text" title="address" name="address" placeholder="address">
+            <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"/>
+            <div class="modal-footer">
+                <input type="submit"
+                       class="btn btn-outline-dark btn-sm" value="Send"/>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="deleteModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>The record will be deleted !!!!</p>
+                </div>
+                <div class="modal-footer">
+                    <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"/>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Exit
+                    </button>
+                    <a href="" class="btn btn-danger btn-sm" id="delRef">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!----------------------------------- Update form ------------------------------------------>
+    <div class="myForm">
+        <div id="modalEdit" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit phone</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="block-user form-update">
+                            <input type="text" id="name-name" title="name" name="name" placeholder="name *" value="">
+                            <input type="text" id="surname-surname" title="surname" name="surname"
+                                   placeholder="surname *"
+                                   value="">
+                            <input type="text" id="patronymic-patronymic" title="patronymic" name="patronymic"
+                                   placeholder="patronymic *" value="">
+
+                            <input type="text" id="phone-Mobile" title="phoneMobile" name="phoneMobile"
+                                   placeholder="phone mobile *" value="">
+
+                            <input type="text" id="phoneHome" title="phoneHome" name="phoneHome" placeholder="phone home"
+                                   value="">
+                            <input type="email" id="email" title="email" name="email" placeholder="email" value="">
+                            <input type="text" id="address" title="address" name="address" placeholder="address"
+                                   value="">
+                            <input id="token" name="${_csrf.parameterName}" value="${_csrf.token}"
+                                   type="hidden"/>
+                            <div class="modal-footer">
+                                <input type="submit" id="btnSaveEdit"
+                                       class="btn btn-outline-dark btn-sm" value="Save"/>
+                                <input type="submit" id="closeEdit" class="btn btn-outline-dark btn-sm"
+                                       data-dismiss="modal" value="Exit"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div th:replace="default/footer :: footer"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+/*---- LOGIN -----*/
+
+* {
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s
+}
+
+body {
+
+    background-color: #F5F5DC;
+}
+
+.wrapper {
+    max-width: 1600px;
+    min-width: 765px;
+    margin: 0 auto;
+}
+
+.massage-alert {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 25px;
+}
+
+.message {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 20px 110px;
+}
+
+.name-company h1 {
+    font-family: Arial, serif;
+    text-transform: uppercase;
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+    color: #663333;
+}
+
+.logo-block {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 10px 10px;
+}
+
+.logo {
+    height: 50px;
+    width: 100px;
+    background-size: 100px;
+    z-index: 9000;
+}
+
+.input {
+    border: 1px solid #D3AD87;
+    text-indent: 0.5em;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    font-family: sans-serif;
+    line-height: 40px;
+    border-radius: 5px;
+}
+
+#form {
+    width: 100%;
+    font-family: Arial, serif
+}
+
+#form h2 {
+    text-align: center;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+#form .input:hover {
+    border: 1px solid #D3AD87;
+    border-radius: 5px;
+}
+
+.btn-enter {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.input:active, .input:hover, .input:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.btn-enter-submit {
+    width: 100%;
+    height: 50px;
+    margin: 23px 0;
+    background-color: #660010;
+    border-radius: 8px;
+}
+
+.btn-enter-submit:active, .btn-enter-submit:hover, .btn-enter-submit:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.btn-enter-submit:hover {
+    background-color: #550010;
+}
+
+.btn-enter-submit p {
+    padding: 5px 2px;
+    font-size: 25px;
+    color: white;
+}
+
+.login {
+    display: block;
+    width: 400px;
+    height: auto;
+    margin-left: 35%;
+    margin-top: 5%;
+    background: -webkit-linear-gradient(135deg, rgba(126, 172, 62, 0.33) 40%, #F5F5DC 40%);
+    background: -o-linear-gradient(135deg, rgba(126, 172, 62, 0.33) 40%, #F5F5DC 40%);
+    background: linear-gradient(350grad, rgba(126, 172, 62, 0.33) 40%, #F5F5DC 40%);
+    border-radius: 10px;
+    -webkit-box-shadow: 0 3px 6px rgba(28, 15, 25, 0.9);
+    box-shadow: 0 3px 6px rgba(28, 15, 25, 0.9);
+}
+
+.password-reminder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    border-bottom: 1px dotted #550010;
+    cursor: pointer;
+    color: #550010;
+
+}
+
+.password-reminder p {
+    font-size: 1.15385em;
+    text-decoration: none;
+    outline: 0;
+}
+
+.wrapper-registration {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 30%;
+    width: 40%;
+}
+
+.wrapper-registration .text-registration h1 {
+    text-align: center;
+    font-size: 15px;
+    color: #550010;
+}
+
+.form-add input {
+    width: 94.5%;
+    margin: 5px 14px;
+    border: 1px solid #D3AD87;
+    text-indent: 0.5em;
+    height: auto;
+    font-family: sans-serif;
+    font-size: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.exit {
+    text-decoration: none;
+    border: 1px solid #D3AD87;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+
+
+}
+
+.exit:hover {
+    background: #343a40;
+    border: 1px solid #343a40;
+}
+
+.modal-footer a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-size: 12px;
+    margin: 0 5px;
+
+
+}
+
+.modal-footer a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+
+.form-add label.error-label{
+    width: 50%;
+    padding: 2px 15px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #660010;
+}

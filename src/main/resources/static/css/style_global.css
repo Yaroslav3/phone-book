@@ -1,0 +1,135 @@
+
+
+body {
+    background-color: #D3AD87;
+}
+
+* {
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s
+}
+
+.wrapper {
+    max-width: 1600px;
+    min-width: 765px;
+    margin: 0 auto;
+}
+
+.user-name-session {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-right: 25px;
+}
+
+.title {
+    margin-right: 10px;
+}
+
+.name {
+    color: #0c7123;
+}
+
+.exit-account {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-right: 25px;
+    text-decoration: none
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+.btn-exit {
+    background-color: #517a3a;
+    width: 75px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.btn-exit:hover {
+    background-color: #639349;
+    text-decoration: none;
+}
+
+.btn-exit p {
+    font-family: 'ambleregular', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+.toolbar-editor {
+    margin: 0 25px;
+
+}
+
+.save-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-right: 25px;
+}
+
+#saveData {
+    background-color: #517a3a;
+    width: 75px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#saveData:hover {
+    background-color: #639349;
+
+}
+
+#saveData p {
+    text-align: center;
+    font-family: 'ambleregular', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    color: white;
+}
+
+#saveData:active, #saveData:hover, #saveData:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+
+
+
+/* editor form*/
+.content-show-editor{
+    background-color: #f8f8f8;
+    height: 25px;
+}
+
+
+.content-show-editor p {
+    font-family: 'ambleregular', Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #663333;
+
+
+}
+
+.ql-container.ql-snow {
+    border: none;
+}
+

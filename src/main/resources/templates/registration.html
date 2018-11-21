@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/authentication.css" th:href="@{/css/authentication.css}"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+
+    <title>authentication</title>
+</head>
+<body>
+<br/>
+
+
+<div th:if="${successful_registration}" class="alert alert-success" role="alert">
+    <p class="message" th:text="${message_successful}"></p>
+</div>
+
+<div th:if="${error_name}" class="alert alert-warning" role="alert">
+    <p class="message" th:text="${message_error}"></p>
+</div>
+
+
+<div class="wrapper-registration">
+    <form class="form-add" th:action="@{/registration/save}" th:object="${user}"
+          method="post">
+        <div class="text-registration">
+            <h1>Registration</h1>
+        </div>
+
+        <input type="text" th:field="*{name}" title="name" name="name" placeholder="name">
+        <label class="error-label" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+
+        <input type="text" th:field="*{surname}" title="surname" name="surname" placeholder="surname">
+        <label class="error-label" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></label>
+
+        <input type="text"  th:field="*{patronymic}" title="patronymic" name="patronymic" placeholder="patronymic">
+        <label class="error-label" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}"></label>
+
+        <input type="text" th:style="" th:field="*{login}" title="login" name="login" placeholder="login">
+        <label class="error-label" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></label>
+
+        <input type="text" th:field="*{password}" title="password" name="password" placeholder="password">
+        <label class="error-label" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+
+        <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"/>
+        <div class="modal-footer">
+            <input type="submit"
+                   class="btn btn-outline-dark btn-sm" value="Send"/>
+            <a class="exit" href="/login">Exit</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

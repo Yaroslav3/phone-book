@@ -1,0 +1,170 @@
+
+/*---------- MENU -----------*/
+
+.nav-tabs li a {
+    color: #663333;
+    text-transform: uppercase;
+    /*font-weight: bold;*/
+    word-spacing: 4px;
+    font-size: 12px;
+}
+
+.d-inline-block {
+    white-space: pre-wrap !important;
+    vertical-align: center;
+}
+
+.nav-tabs li a:hover {
+    color: #b4b4b4;
+}
+
+.nav-tabs li a:active {
+    color: #16b411;
+}
+
+/*-------- CONTENT ----------*/
+
+.alert {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin: 0 25px;
+}
+
+.message {
+    text-align: center;
+}
+
+.message p {
+    font-family: 'ambleregular', Arial, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.content-show {
+    border: 1px solid #f3f3f3;
+    background-color: #f8f8f8;
+    color: #663333;
+
+}
+
+.content-show p {
+    font-family: 'ambleregular', Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 12px;
+
+}
+
+.form-add input:active, .form-add input:hover, .form-add input:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.form-add input {
+    width: 94.5%;
+    margin: 5px 14px;
+    border: 1px solid #D3AD87;
+    text-indent: 0.5em;
+    height: auto;
+    font-family: sans-serif;
+    font-size: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.btn-save {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 0 10px;
+
+}
+
+.btn-save-submit:active, .btn-save-submit:hover, .btn-save-submit:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.btn-save-submit {
+    width: 200px;
+    height: auto;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #663333;
+}
+
+/*-------Table -------------*/
+
+.table td, .table th {
+    padding: .75rem;
+    /* vertical-align: top; */
+    border-top: 1px solid #dee2e6;
+}
+
+.table .text-table-header p {
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #0c7123;
+}
+
+.table th {
+    background-color: #D3AD87;
+}
+
+.table thead th p {
+    margin-bottom: 5px;
+}
+
+.text-table {
+    font-size: 10px;
+}
+
+/*---------MODAL ADD USER ----------*/
+
+.filter-choose {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin: 25px 25px;
+}
+
+.filter-choose form select{
+    border-radius: 5px;
+    width: 145px;
+    text-indent: 1.25em;
+    font-size: 15px;
+}
+
+.h5 {
+    font-family: 'ambleregular', sans-serif;
+}
+
+.btn-send{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -15px;
+}
+
+.form-update input {
+    width: 94.5%;
+    margin: 5px 14px;
+    border: 1px solid #D3AD87;
+    text-indent: 0.5em;
+    height: auto;
+    font-family: sans-serif;
+    font-size: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
