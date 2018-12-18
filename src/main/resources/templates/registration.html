@@ -52,7 +52,7 @@
         <input type="text"  th:field="*{patronymic}" title="patronymic" name="patronymic" placeholder="patronymic">
         <label class="error-label" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}"></label>
 
-        <input type="text" th:style="" th:field="*{login}" title="login" name="login" placeholder="login">
+        <input type="text"  th:field="*{login}" title="login" name="login" placeholder="login">
         <label class="error-label" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></label>
 
         <input type="text" th:field="*{password}" title="password" name="password" placeholder="password">
